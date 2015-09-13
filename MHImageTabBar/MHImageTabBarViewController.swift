@@ -25,20 +25,20 @@ class MHImageTabBarViewController: UIViewController {
     
     var selectedViewController: UIViewController!
     
-    required init(coder aDecoder: NSCoder) {
+    required init?(coder aDecoder: NSCoder) {
         
         var vcs = [UIViewController]()
         var ivs = [UIImageView]()
         let bundle = NSBundle.mainBundle()
-        for (i, mvc) in enumerate(MHImageTabBarConstants.mainViewControllers) {
+        for (i, mvc) in MHImageTabBarConstants.mainViewControllers.enumerate() {
             
-            vcs.append(UIStoryboard(name: mvc.storyboardName, bundle: bundle).instantiateInitialViewController() as! UIViewController)
+            vcs.append(UIStoryboard(name: mvc.storyboardName, bundle: bundle).instantiateInitialViewController()!)
             
-            let iv = UIImageView(frame: .zeroRect)
+            let iv = UIImageView(frame: .zero)
             iv.contentMode = .Center
             iv.tag = i
             iv.image = UIImage(named: mvc.imageName)?.imageWithRenderingMode(.AlwaysTemplate)
-            iv.setTranslatesAutoresizingMaskIntoConstraints(false)
+            iv.translatesAutoresizingMaskIntoConstraints = false
             ivs.append(iv)
         }
         
@@ -80,11 +80,11 @@ class MHImageTabBarViewController: UIViewController {
         
         let firstIV = imageViews.first!
         
-        tabBar.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|[firstIV]|", options: nil, metrics: nil, views: ["firstIV":firstIV]))
+        tabBar.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|[firstIV]|", options: [], metrics: nil, views: ["firstIV":firstIV]))
         
         for i in 1 ..< imageViews.count {
             let iv = imageViews[i]
-            tabBar.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|[iv]|", options: nil, metrics: nil, views: ["iv":iv]))
+            tabBar.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|[iv]|", options: [], metrics: nil, views: ["iv":iv]))
             tabBar.addConstraint(NSLayoutConstraint(item: iv, attribute: .Width, relatedBy: .Equal, toItem: firstIV, attribute: .Width, multiplier: 1, constant: 0))
         }
     }
@@ -121,11 +121,11 @@ class MHImageTabBarViewController: UIViewController {
     
     func addChildView(aView: UIView) {
         
-        aView.setTranslatesAutoresizingMaskIntoConstraints(false)
+        aView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(aView)
         let views = ["child": aView, "tabBar": tabBar]
         view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("|[child]|", options: .DirectionLeftToRight, metrics: nil, views: views))
-        view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|[child][tabBar]", options: nil, metrics: nil, views: views))
+        view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|[child][tabBar]", options: [], metrics: nil, views: views))
         
         view.layoutIfNeeded()
     }
