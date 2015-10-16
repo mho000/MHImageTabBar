@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="c5W-aU-sLv">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="c5W-aU-sLv">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Main1 View Controller-->
         <scene sceneID="FS1-KX-udK">
             <objects>
-                <viewController id="c5W-aU-sLv" sceneMemberID="viewController">
+                <viewController id="c5W-aU-sLv" customClass="Main1ViewController" customModule="MHImageTabBar" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="39I-oc-Gp7"/>
                         <viewControllerLayoutGuide type="bottom" id="bNp-0O-sBh"/>
@@ -17,18 +18,37 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Main 1" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QES-Xf-eiU">
-                                <rect key="frame" x="274" y="289.5" width="52" height="20.5"/>
+                                <rect key="frame" x="275.5" y="289.5" width="49" height="20.5"/>
+                                <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="joG-kJ-rGl">
+                                <rect key="frame" x="194" y="318" width="213" height="29"/>
+                                <animations/>
+                                <segments>
+                                    <segment title="Tab Bar Visible"/>
+                                    <segment title="Tab Bar hidden"/>
+                                </segments>
+                                <connections>
+                                    <action selector="segmentedControlValueChanged:" destination="c5W-aU-sLv" eventType="valueChanged" id="Cs2-X6-84m"/>
+                                </connections>
+                            </segmentedControl>
                         </subviews>
+                        <animations/>
                         <color key="backgroundColor" red="0.1843137255" green="0.6588235294" blue="0.87450980389999999" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="tintColor" red="0.64292315099999997" green="0.91508838380000002" blue="0.71312409129999998" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
+                            <constraint firstItem="joG-kJ-rGl" firstAttribute="top" secondItem="QES-Xf-eiU" secondAttribute="bottom" constant="8" id="Den-0B-AXQ"/>
+                            <constraint firstItem="joG-kJ-rGl" firstAttribute="centerX" secondItem="HRP-4M-vsK" secondAttribute="centerX" id="Rdn-HN-ubY"/>
                             <constraint firstAttribute="centerY" secondItem="QES-Xf-eiU" secondAttribute="centerY" id="Wiy-lD-q2a"/>
                             <constraint firstAttribute="centerX" secondItem="QES-Xf-eiU" secondAttribute="centerX" id="jOO-Qw-Rxm"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="segmentedControl" destination="joG-kJ-rGl" id="ofX-qb-JLg"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Phq-sy-WhH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

@@ -10,9 +10,13 @@ class MHImageTabBarViewController: UIViewController {
     
     let viewControllers: [UIViewController]
     private let imageViews: [UIImageView]
+    private var tabBarVisibleConstant = CGFloat(0)
+    private var tabBarHiddenConstant: CGFloat!
     
     @IBOutlet var tabBar: UIView!
     @IBOutlet var tabBarSeparator: UIView!
+    @IBOutlet var tabBarHeightConstraint: NSLayoutConstraint!
+    @IBOutlet var tabBarBottomConstraint: NSLayoutConstraint!
     
     var selectedViewControllerIndex: Int = 0 {
         didSet {
@@ -59,6 +63,8 @@ class MHImageTabBarViewController: UIViewController {
         tabBar.backgroundColor = MHImageTabBarConstants.tabBarBackgroundColor
         tabBarSeparator.backgroundColor = MHImageTabBarConstants.tabBarSeparatorColor
         tabBar.tintAdjustmentMode = .Normal
+        
+        tabBarHiddenConstant = tabBarHeightConstraint.constant
     }
     
     func addSubviews() {
@@ -104,7 +110,7 @@ class MHImageTabBarViewController: UIViewController {
         selectedViewControllerIndex = 0
     }
     
-    //MARK: - Actions
+    //MARK: - actions
     
     func switchToViewController(toVC: UIViewController) {
         
@@ -133,8 +139,40 @@ class MHImageTabBarViewController: UIViewController {
     func gestureRecognizerTapped(tgr: UITapGestureRecognizer) {
         selectedViewControllerIndex = tgr.view!.tag
     }
+    
+    //MARK: - tab bar hide and show
+    
+    func setTabBarVisible(visible: Bool, animated: Bool = true) {
+        let constant = visible ? tabBarVisibleConstant : tabBarHiddenConstant
+        let duration = animated ? MHImageTabBarConstants.tabBarAnimationDuration : 0
+        
+        UIView.animateWithDuration(duration) {
+            [unowned self]
+            () -> Void in
+            
+            self.tabBarBottomConstraint.constant = constant
+            self.view.layoutIfNeeded()
+        }
+    }
 }
 
+//MARK: - ui view controller extension for tab bar
+
+extension UIViewController {
+    var mhTabBarViewController: MHImageTabBarViewController? {
+        var vc = parentViewController
+        
+        while vc != nil {
+            if vc is MHImageTabBarViewController {
+                return vc as? MHImageTabBarViewController
+            } else {
+                vc = vc?.parentViewController
+            }
+        }
+        
+        return nil
+    }
+}
 //MARK: - Helper
 
 extension UIView {

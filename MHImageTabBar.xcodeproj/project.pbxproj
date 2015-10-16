@@ -17,6 +17,7 @@
 		D5070BC21B9DFCBA000CDE1A /* Main3.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D5070BBF1B9DFCBA000CDE1A /* Main3.storyboard */; };
 		D5070BC31B9DFCBA000CDE1A /* Main4.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D5070BC01B9DFCBA000CDE1A /* Main4.storyboard */; };
 		D5070BC51B9E0100000CDE1A /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5070BC41B9E0100000CDE1A /* Constants.swift */; };
+		D54F0AF81BD1166100DF73AD /* Main1ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D54F0AF71BD1166100DF73AD /* Main1ViewController.swift */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		D5070BBF1B9DFCBA000CDE1A /* Main3.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main3.storyboard; sourceTree = "<group>"; };
 		D5070BC01B9DFCBA000CDE1A /* Main4.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main4.storyboard; sourceTree = "<group>"; };
 		D5070BC41B9E0100000CDE1A /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		D54F0AF71BD1166100DF73AD /* Main1ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Main1ViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +73,7 @@
 				D5070BC41B9E0100000CDE1A /* Constants.swift */,
 				D5070BB81B9DEEA2000CDE1A /* MHImageTabBarViewController.swift */,
 				D5070BBA1B9DF0CA000CDE1A /* Tabbar.storyboard */,
+				D54F0AF71BD1166100DF73AD /* Main1ViewController.swift */,
 				D5070BBC1B9DFC4E000CDE1A /* Main1.storyboard */,
 				D5070BBE1B9DFCBA000CDE1A /* Main2.storyboard */,
 				D5070BBF1B9DFCBA000CDE1A /* Main3.storyboard */,
@@ -184,6 +187,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D5070BB91B9DEEA2000CDE1A /* MHImageTabBarViewController.swift in Sources */,
+				D54F0AF81BD1166100DF73AD /* Main1ViewController.swift in Sources */,
 				D5070B991B9DEDBE000CDE1A /* AppDelegate.swift in Sources */,
 				D5070BC51B9E0100000CDE1A /* Constants.swift in Sources */,
 			);
