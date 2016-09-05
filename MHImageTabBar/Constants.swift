@@ -9,10 +9,10 @@ struct MHImageTabBarConstants {
     static let tabBarUnselectedItemColor = UIColor(red: 0.65, green: 0.74, blue: 0.71, alpha: 1)
     
     static let mainViewControllers = [
-        MainViewController(storyboardName: "Main1", imageName: "one"),
-        MainViewController(storyboardName: "Main2", imageName: "two"),
-        MainViewController(storyboardName: "Main3", imageName: "three"),
-        MainViewController(storyboardName: "Main4", imageName: "four")
+        MainViewController(storyboardName: "Main1", imageName: "one", selectedImageName: "one"),
+        MainViewController(storyboardName: "Main2", imageName: "two", selectedImageName: "two"),
+        MainViewController(storyboardName: "Main3", imageName: "three", selectedImageName: "three"),
+        MainViewController(storyboardName: "Main4", imageName: "four", selectedImageName: "four")
     ]
     
     static let RTL = false

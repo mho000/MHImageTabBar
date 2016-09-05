@@ -4,6 +4,7 @@ import UIKit
 struct MainViewController {
     let storyboardName: String
     let imageName: String
+    let selectedImageName: String
 }
 
 class MHImageTabBarViewController: UIViewController {
@@ -21,7 +22,9 @@ class MHImageTabBarViewController: UIViewController {
     var selectedViewControllerIndex: Int = 0 {
         didSet {
             imageViews[oldValue].tintColor = nil
+            imageViews[oldValue].image = UIImage(named: MHImageTabBarConstants.mainViewControllers[selectedViewControllerIndex].imageName)?.imageWithRenderingMode(.AlwaysTemplate)
             imageViews[selectedViewControllerIndex].tintColor = MHImageTabBarConstants.tabBarSelectedItemColor
+            imageViews[selectedViewControllerIndex].image = UIImage(named: MHImageTabBarConstants.mainViewControllers[selectedViewControllerIndex].selectedImageName)?.imageWithRenderingMode(.AlwaysTemplate)
             
             switchToViewController(viewControllers[selectedViewControllerIndex])
         }
@@ -98,7 +101,7 @@ class MHImageTabBarViewController: UIViewController {
     func addGestureRecognizers() {
         for iv in imageViews {
             iv.userInteractionEnabled = true
-            iv.addGestureRecognizer(UITapGestureRecognizer(target: self, action: Selector("gestureRecognizerTapped:")))
+            iv.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(MHImageTabBarViewController.gestureRecognizerTapped(_:))))
         }
     }
     
