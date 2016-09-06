@@ -22,8 +22,10 @@ class MHImageTabBarViewController: UIViewController {
     var selectedViewControllerIndex: Int = 0 {
         didSet {
             imageViews[oldValue].tintColor = nil
+            imageViews[oldValue].backgroundColor = MHImageTabBarConstants.tabBarBackgroundColor
             imageViews[oldValue].image = UIImage(named: MHImageTabBarConstants.mainViewControllers[selectedViewControllerIndex].imageName)?.imageWithRenderingMode(.AlwaysTemplate)
             imageViews[selectedViewControllerIndex].tintColor = MHImageTabBarConstants.tabBarSelectedItemColor
+            imageViews[selectedViewControllerIndex].backgroundColor = MHImageTabBarConstants.tabBarSelectedBackgroundColor
             imageViews[selectedViewControllerIndex].image = UIImage(named: MHImageTabBarConstants.mainViewControllers[selectedViewControllerIndex].selectedImageName)?.imageWithRenderingMode(.AlwaysTemplate)
             
             switchToViewController(viewControllers[selectedViewControllerIndex])
