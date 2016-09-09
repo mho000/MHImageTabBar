@@ -5,6 +5,18 @@ struct MainViewController {
     let storyboardName: String
     let imageName: String
     let selectedImageName: String
+    
+    init(storyboardName: String, imageName: String, selectedImageName: String) {
+        
+        self.storyboardName = storyboardName
+        self.imageName = imageName
+        self.selectedImageName = selectedImageName
+    }
+    
+    init(storyboardName: String, imageName: String) {
+        
+        self.init(storyboardName: storyboardName, imageName: imageName, selectedImageName: imageName)
+    }
 }
 
 class MHImageTabBarViewController: UIViewController {
