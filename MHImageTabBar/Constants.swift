@@ -18,5 +18,5 @@ struct MHImageTabBarConstants {
     
     static let RTL = false
     
-    static let tabBarAnimationDuration = NSTimeInterval(0.2)
+    static let tabBarAnimationDuration = TimeInterval(0.2)
 }

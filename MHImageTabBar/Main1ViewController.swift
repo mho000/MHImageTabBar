@@ -22,9 +22,9 @@ class Main1ViewController: UIViewController {
     
     @IBAction func segmentedControlValueChanged(sender: UISegmentedControl) {
         if segmentedControl.selectedSegmentIndex == 0 {
-            mhTabBarViewController?.setTabBarVisible(true, animated: true)
+            mhTabBarViewController?.setTabBarVisible(visible: true, animated: true)
         } else {
-            mhTabBarViewController?.setTabBarVisible(false, animated: true)
+            mhTabBarViewController?.setTabBarVisible(visible: false, animated: true)
         }
     }
 }
